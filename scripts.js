@@ -1,6 +1,8 @@
 let countdown;
 const timerDisplay = document.querySelector('.display__time-left');
 
+const buttons = document.querySelectorAll('.timer__button');
+
 function timer(seconds){
     const now = Date.now();
     const then = now + seconds * 1000;
@@ -23,4 +25,11 @@ function displayTimeLeft(seconds){
     timerDisplay.textContent = display; 
     console.log(minutes, remainderSeconds);
 }
+
+function startTimer(e){
+    console.log(e.target.dataset.time);
+}
+
+buttons.forEach(button => button.addEventListener('click',startTimer));
+
 
