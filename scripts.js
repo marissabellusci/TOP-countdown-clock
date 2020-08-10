@@ -6,12 +6,14 @@ function timer(seconds){
 
     countdown = setInterval(() => {
     const secondsLeft = Math.round((then - Date.now())/1000);
-    if(secondsLeft <= 0){
+    if(secondsLeft < 0){
         clearInterval(countdown);
     }
-    console.log(secondsLeft);
+    displayTimeLeft(secondsLeft);
     }, 1000);
+}
 
-    
+function displayTimeLeft(seconds){
+    console.log(seconds);
 }
 
