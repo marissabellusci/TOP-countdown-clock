@@ -42,4 +42,5 @@ form.addEventListener('submit', function(e){
     e.preventDefault();
     seconds = this.minutes.value * 60;
     startTimer();
+    this.reset();
 });
