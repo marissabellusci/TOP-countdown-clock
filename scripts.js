@@ -2,6 +2,8 @@ let countdown;
 const timerDisplay = document.querySelector('.display__time-left');
 
 const buttons = document.querySelectorAll('.timer__button');
+const form = document.querySelector('form');
+const input = document.querySelector('input');
 
 function timer(seconds){
     const now = Date.now();
@@ -26,12 +28,19 @@ function displayTimeLeft(seconds){
     console.log(minutes, remainderSeconds);
 }
 
-function startTimer(e){
+function startTimer(){
     clearInterval(countdown);
-    const seconds = e.target.dataset.time;
     timer(seconds);
 }
 
-buttons.forEach(button => button.addEventListener('click',startTimer));
+buttons.forEach(button => button.addEventListener('click',function(e){
+    seconds = e.target.dataset.time;
+    startTimer(e);
+}));
 
-
+form.addEventListener('submit', function(e){
+    console.log('ok');
+    e.preventDefault();
+    seconds = input.value * 60;
+    startTimer();
+});
