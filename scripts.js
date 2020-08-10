@@ -27,7 +27,9 @@ function displayTimeLeft(seconds){
 }
 
 function startTimer(e){
-    console.log(e.target.dataset.time);
+    clearInterval(countdown);
+    const seconds = e.target.dataset.time;
+    timer(seconds);
 }
 
 buttons.forEach(button => button.addEventListener('click',startTimer));
