@@ -3,7 +3,6 @@ const timerDisplay = document.querySelector('.display__time-left');
 
 const buttons = document.querySelectorAll('.timer__button');
 const form = document.querySelector('form');
-const input = document.querySelector('input');
 
 function timer(seconds){
     const now = Date.now();
@@ -41,6 +40,6 @@ buttons.forEach(button => button.addEventListener('click',function(e){
 form.addEventListener('submit', function(e){
     console.log('ok');
     e.preventDefault();
-    seconds = input.value * 60;
+    seconds = this.minutes.value * 60;
     startTimer();
 });
